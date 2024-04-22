@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/bootstrap-5.0.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/blog.css">
+    <title>Blog</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row navbar">
+            <div class="col-12 col-md-6 col-sm-6 navbar-icon"><a href="{% url 'index' %}">Rahmatillo's Blog</a></div>
+            <div class="col-12 col-md-6 col-sm-6 navbar-link">
+                <div><a href="./about.html">About</a></div>
+                <div><a href="./blog.html">Blog</a></div>
+                <div><a href="#">Channel</a></div>
+            </div>
+        </div>
+        <div class="row blog">
+            <div class="col-12">
+                <h1>Blog</h1>
+            </div>
+        </div>
+        <div class="row main">
+            <div class="col-12 col-md-6 col-sm-6 main-card1">
+                {% for ym in yillar %}
+                <p class="yillar">{{ ym.year }}</p>
+                <h4>
+                    {% if ym.month == 1 %}
+                        Yanvar
+                    {% elif ym.month == 2 %}
+                        Fevral
+                    {% elif ym.month == 3 %}
+                        Mart
+                    {% elif ym.month == 4 %}
+                        Aprel
+                    {% elif ym.month == 5 %}
+                        May
+                    {% elif ym.month == 6 %}
+                        Iyun
+                    {% elif ym.month == 7 %}
+                        Iyul
+                    {% elif ym.month == 8 %}
+                        Avgust
+                    {% elif ym.month == 9 %}
+                        Sentabr
+                    {% elif ym.month == 10 %}
+                        Oktabr
+                    {% elif ym.month == 11 %}
+                        Noyabr
+                    {% elif ym.month == 12 %}
+                        Dekabr
+                    {% endif %}
+                </h4>
+                {% for blog in blogs %}
+                    {% if blog.date.year == ym.year and blog.date.month == ym.month %}
+                        <div class="main-card1-link">
+                            <a href="{% url 'maqola' blog.id %}">
+                                <h6>{{ blog.date }}</h6>
+                                <h5>{{ blog.title }}</h5>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            </div>
+            <div class="col-12 col-md-6 col-sm-6 main-card2">
+                <h4>NEWSLETTER</h4>
+                <p>Subscribe to <a href="#">@codialuz</a> telegram channel where I share interesting & useful stuff.</p>
+
+            </div>
+        </div>
+        <div class="row footer">
+            <p>© 2021 azimjon.com</p>
+        </div>
+    </div>
+</body>
+</html>

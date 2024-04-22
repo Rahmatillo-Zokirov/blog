@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ maqola.title }}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-5.0.2-dist/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>{{ maqola.title }}</h2>
+                <hr>
+                <h1>{{ maqola.date|date:"Y F" }}</h1>
+                <img src="{{ maqola.photo.url }}" alt="{{ maqola.title }}">
+                <p>{{ maqola.text }}</p>
+            </div>
+        </div>
+        <div class="row footer">
+            <p>© 2021 azimjon.com</p>
+        </div>
+    </div>
+</body>
+</html>
