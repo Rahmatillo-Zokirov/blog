@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views import View
+
 from .models import *
 
 def index(request):
@@ -26,3 +28,11 @@ def maqola(request, maqola_id):
 
 def about(request):
     return render(request, 'about.html')
+
+
+class TalksView(View):
+    def get(self, request):
+        talks = Talks.objects.order_by('-date')
+
+        context = {'talks': talks}
+        return render(request, 'talks.html', context)

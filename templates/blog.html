@@ -13,9 +13,10 @@
         <div class="row navbar">
             <div class="col-12 col-md-6 col-sm-6 navbar-icon"><a href="{% url 'index' %}">Rahmatillo's Blog</a></div>
             <div class="col-12 col-md-6 col-sm-6 navbar-link">
-                <div><a href="./about.html">About</a></div>
-                <div><a href="./blog.html">Blog</a></div>
-                <div><a href="#">Channel</a></div>
+                <div><a href="{% url 'about' %}">About</a></div>
+                <div><a href="{% url 'blog' %}">Blog</a></div>
+                <div><a href="{% url 'talks' %}">Talks</a></div>
+                <div><a href="https://t.me/rahmatillo_portfolio">Channel</a></div>
             </div>
         </div>
         <div class="row blog">
@@ -73,7 +74,7 @@
             </div>
         </div>
         <div class="row footer">
-            <p>© 2021 azimjon.com</p>
+            <p>© 2021 rahmatillo.com</p>
         </div>
     </div>
 </body>

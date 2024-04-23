@@ -10,4 +10,5 @@ urlpatterns = [
     path('blog/', blog, name='blog'),
     path('maqola/<int:maqola_id>/', maqola, name='maqola'),
     path('aboout/', about, name='about'),
+    path('talks/', TalksView.as_view(), name='talks'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
